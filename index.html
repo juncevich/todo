@@ -11,13 +11,13 @@
         <script src="node_modules/reflect-metadata/Reflect.js"></script>
         <script src="node_modules/systemjs/dist/system.src.js"></script>
         <script>
-            var path = {
+            var paths = {
                 "rxjs/*": "node_modules/rxjs/bundles/Rx.min.js",
-                "@angular/*" : "nide_modules/@angular/*"
+                "@angular/*" : "node_modules/@angular/*"
             }
 
             var packages = { "app": {}};
-            var angularModules = ["common", "compioler", "core", "forms", 
+            var angularModules = ["common", "compiler", "core", "forms", 
             "platform-browser", "platform-browser-dynamic"];
             angularModules.forEach(function(pkg){
                 packages["@angular/"+pkg] = {
@@ -30,6 +30,5 @@
     </head>
     <body class ="m-a-1">
         <todo-app>Angular placeholder</todo-app>
-        
     </body>
 </html>
