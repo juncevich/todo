@@ -10,6 +10,23 @@
         <script src="node_modules/zone.js/dist/zone.min.js"></script>
         <script src="node_modules/reflect-metadata/Reflect.js"></script>
         <script src="node_modules/systemjs/dist/system.src.js"></script>
+        <script>
+            var path = {
+                "rxjs/*": "node_modules/rxjs/bundles/Rx.min.js",
+                "@angular/*" : "nide_modules/@angular/*"
+            }
+
+            var packages = { "app": {}};
+            var angularModules = ["common", "compioler", "core", "forms", 
+            "platform-browser", "platform-browser-dynamic"];
+            angularModules.forEach(function(pkg){
+                packages["@angular/"+pkg] = {
+                    main: "/bundles/" + pkg + ".umd.min.js"
+                };
+            });
+            System.config({paths: paths, packages: packages});
+            System.import("app/main").catch(function(err) {console.error(err);});
+        </script>
     </head>
     <body class ="m-a-1">
         <todo-app>Angular placeholder</todo-app>
